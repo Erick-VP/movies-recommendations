@@ -9,7 +9,10 @@ function parseEnv(content) {
     if (separatorIndex === -1) return env
 
     const key = trimmed.slice(0, separatorIndex).trim()
-    const value = trimmed.slice(separatorIndex + 1).trim().replace(/^["']|["']$/g, '')
+    const value = trimmed
+      .slice(separatorIndex + 1)
+      .trim()
+      .replace(/^["']|["']$/g, '')
     env[key] = value
     return env
   }, {})
@@ -31,8 +34,8 @@ async function loadEnv() {
 
 // Carrega o token de leitura do TMDB a partir do arquivo .env.
 export async function getApiReadKey() {
-  const env = await loadEnv()
-  const apiKey = env.TMDB_API_READ_KEY || env.API_READ_KEY || env.TMDB_API_KEY
+  const apiKey =
+    'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNmIzYWJkNGNiOGUwNzVmOWJmY2VmOTc0MjBmOTcwYiIsIm5iZiI6MTc2MjUzODI3NS4wNTUsInN1YiI6IjY5MGUzMzIzMTJjYTQ3NmQ1YWRkMTM0MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.nQVRoTRaMxb23ama7ncrz-4yfoLpE-gytcNskMwsD0E'
 
   if (!apiKey) {
     throw new Error('Defina TMDB_API_READ_KEY no arquivo .env.')
