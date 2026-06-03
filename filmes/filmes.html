@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recomendacao de Filmes por Tags</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./recommendations.css" />
+  </head>
+  <body>
+    <main class="recommendation-shell">
+      <section class="filters-panel" aria-labelledby="pageTitle">
+        <div class="intro">
+          <p class="eyebrow">Protótipo TMDB</p>
+          <h1 id="pageTitle">Recomendação de filmes por tags</h1>
+          <p>
+            Selecione um ou mais gêneros para priorizar filmes mais próximos
+            das suas preferências.
+          </p>
+        </div>
+
+        <div class="genres-box" role="group" aria-labelledby="genresTitle">
+          <div class="genres-header">
+            <h2 class="genres-title" id="genresTitle">Filtro por gênero</h2>
+            <button
+              class="genres-toggle"
+              id="genresToggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="genresGrid"
+              aria-label="Ocultar gêneros"
+            >
+              <span id="genresToggleIcon" aria-hidden="true">^</span>
+            </button>
+          </div>
+          <div class="genres-grid" id="genresGrid"></div>
+        </div>
+      </section>
+
+      <div class="content-stack">
+        <section class="tags-panel" aria-labelledby="tagsTitle">
+          <div>
+            <p class="eyebrow">Tags selecionadas</p>
+            <h2 id="tagsTitle">Preferências</h2>
+          </div>
+          <div class="selected-tags" id="selectedTags" aria-live="polite"></div>
+        </section>
+
+        <section class="results-panel" aria-label="Filmes recomendados">
+          <div class="results-summary">
+            <div>
+              <p class="eyebrow">Filmes</p>
+              <h2 id="resultsTitle">Todos os filmes</h2>
+            </div>
+            <div class="results-actions">
+              <div class="sort-control">
+                <button
+                  class="sort-toggle"
+                  id="sortToggle"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="sortMenu"
+                >
+                  Ordenar: <span id="sortLabel">Nota</span>
+                  <span aria-hidden="true">v</span>
+                </button>
+                <div class="sort-menu hidden" id="sortMenu">
+                  <button type="button" data-sort="rating">Nota</button>
+                  <button type="button" data-sort="popularity">Popularidade</button>
+                  <button type="button" data-sort="releaseYear">Ano de lançamento</button>
+                </div>
+              </div>
+              <span class="page-size">30 por página</span>
+            </div>
+          </div>
+
+          <div class="status" id="status" role="status">Carregando filmes...</div>
+          <div class="movies-grid" id="moviesGrid"></div>
+          <nav class="pagination" id="pagination" aria-label="Paginação"></nav>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="../scripts/pages/movieRecommendations.js"></script>
+  </body>
+</html>

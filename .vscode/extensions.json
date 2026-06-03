@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "rvest.vs-code-prettier-eslint",
+    "natqe.reload",
+    "ecmel.vscode-html-css"
+  ]
+}
